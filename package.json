@@ -1,0 +1,32 @@
+{
+	"name": "last.fm-rich-presence-website",
+	"version": "1.0.0",
+	"description": "An elegant, efficient, easy-to-setup and arguably the best Last.fm discord rich presence!",
+	"main": "index.js",
+	"scripts": {
+		"dev": "tailwindcss -o output.css --watch",
+		"build": "tailwindcss -o output.css --minify"
+	},
+	"keywords": [
+		"Last.fm",
+		"Discord",
+		"Rich",
+		"Presence",
+		"JavaScript",
+		"Elegant",
+		"Efficient",
+		"Easy-to-setup"
+	],
+	"author": {
+		"name": "Monochromish"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"daisyui": "^2.0.9",
+		"tailwindcss": "^3.0.23"
+	},
+	"devDependencies": {
+		"daisyui": "latest",
+		"tailwindcss": "latest"
+	}
+}

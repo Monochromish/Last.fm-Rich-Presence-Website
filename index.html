@@ -1,0 +1,78 @@
+<html data-theme="cupcake">
+  <center>
+	<link rel="stylesheet" type="text/css" href="output.css" />
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+		<title>Last.fm Rich Presence</title>
+        <link rel="icon" href="icons/logo.png">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Last.fm Rich Presence">
+        <meta property="og:description" content="An elegant, efficient, easy-to-setup and arguably the best Last.fm discord rich presence!">
+        <meta property="twitter:image" content="https://raw.githubusercontent.com/Monochromish/Last.fm-Discord-Rich-Presence/main/Example.gif">
+        <meta name="theme-color" content="#d5ccff">
+	</head>
+  <body style="color:#d5ccff">
+		<header id="titlebar">
+      <img src="./icons/logo.png" alt="Logo" animation="float 5s ease-in-out infinite" width="144" height="144" />
+			<h1>Last.fm Rich Presence</h1>
+			<h2>An elegant, efficient, easy-to-setup and arguably the best Last.fm discord rich presence!<h2>
+        <br>
+		</header>
+        <a href="Last.fm Rich Presence Setup 1.0.0.exe" download="Last.fm Rich Presence Setup 1.0.0">
+        <label for="my-modal" class="btn modal-button btn-accent">Download Binary for Windows</label>
+    </a>
+        <input type="checkbox" id="my-modal" class="modal-toggle">
+        <div class="modal">
+            <div class="modal-box">
+                <h3 class="font-bold text-lg">Thank you for downloading Last.fm Rich Presence!</h3>
+                <p class="py-4">Last.fm Rich Presence is still in its beta/early development state; which means bugs and crashes are still expected and the developer is working on it. You can help by contributing or by opening issues on the repository if you come across any.</p>
+                <div class="modal-action">
+                <label for="my-modal" class="btn">Got it!</label>
+                </div>
+            </div>
+        </div>
+        <br><br>
+      <div class="card w-96 glass">
+        <figure><img src="https://raw.githubusercontent.com/Monochromish/Last.fm-Discord-Rich-Presence/main/Example.gif" alt="car!"></figure>
+      </div>
+      <br>
+    </body>
+    <footer class="p-10 footer bg-base-200 text-base-content footer-center rounded">
+      <div>
+        <div class="grid grid-flow-col gap-4">
+          <a href="https://github.com/Monochromish/Last.fm-Discord-Rich-Presence" target="_blank" rel="noopener noreferrer"><img src = "./icons/GitHub.png" alt="GitHub"/></a> 
+        </div>
+      </div> 
+      <div>
+        <p>Copyright © 2022 - All right reserved by Monochromish</p>
+        <p>Noticed a typo, an error, or want to contribute? open a new issue on <a href="https://github.com/Monochromish/Last.fm-Discord-Rich-Presence">GitHub</p>
+      </div>
+    </footer>
+      <script>
+      const form = document.getElementById('post-presence')
+      form.addEventListener('submit', startrpc)
+      async function startrpc(event) {
+        event.preventDefault();
+        const clientid = document.getElementById('clientid').value || '936982107106967602';
+        const username = document.getElementById('username').value;
+        const key = document.getElementById('key').value;
+        const result = await fetch('http://localhost:3000/api/post-presence', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            clientid,
+            username,
+            key
+          })
+        }).then((res) => res.json())
+        console.log(result)
+        if(result.status !== "ok") {
+          alert(result.error)
+        }
+      }
+      </script>
+</center>
+</html>
